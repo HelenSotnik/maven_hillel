@@ -75,7 +75,10 @@ public class Main {
         accountDao.updateAccount(account1);
         System.out.println("Account after update:\n" + account1);
 
-        accountDao.findAccountNumberBiggerThanGivenValue(1000.00);
+        System.out.println(" Number of account where value bigger than given value: ");
+        for (String number : accountDao.findAccountNumberBiggerThanGivenValue(1000.00)) {
+            System.out.println(number);
+        }
     }
 
     private static void testStatusDao(StatusDao statusDao) {
