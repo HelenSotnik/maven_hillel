@@ -52,7 +52,6 @@ public class ClientDao {
         try ( Connection connection = Database.getConnection();
               PreparedStatement statement = connection.prepareStatement(SELECT_BY_ID) ) {
             statement.setInt(1, id);
-            statement.execute();
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 return setClientParameters(resultSet);
@@ -106,7 +105,6 @@ public class ClientDao {
         try ( Connection connection = Database.getConnection();
               PreparedStatement statement = connection.prepareStatement(SELECT_BY_PHONE) ) {
             statement.setLong(1, phone);
-            statement.execute();
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 return setClientParameters(resultSet);

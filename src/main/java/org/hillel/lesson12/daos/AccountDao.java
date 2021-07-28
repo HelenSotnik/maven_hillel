@@ -43,7 +43,6 @@ public class AccountDao {
         try ( Connection connection = Database.getConnection();
               PreparedStatement statement = connection.prepareStatement(SELECT_BY_ID) ) {
             statement.setInt(1, id);
-            statement.execute();
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 return setAccountParameters(resultSet);
@@ -94,7 +93,6 @@ public class AccountDao {
         try ( Connection connection = Database.getConnection();
               PreparedStatement statement = connection.prepareStatement(SELECT_NUMBER_BY_VALUE) ) {
             statement.setDouble(1, value);
-            statement.execute();
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 resultList.add(resultSet.getString("number"));
