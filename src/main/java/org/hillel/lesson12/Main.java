@@ -62,7 +62,7 @@ public class Main {
         }
 
         Account account = new Account();
-        account.setClient_id(35);
+        account.setClientId(35);
         account.setNumber("5765 2345 6709 8843");
         account.setValue(400.00);
         accountDao.saveAccount(account);

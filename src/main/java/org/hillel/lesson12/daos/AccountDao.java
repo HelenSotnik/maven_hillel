@@ -19,7 +19,7 @@ public class AccountDao {
     private Account setAccountParameters(ResultSet rs) throws SQLException {
         Account account = new Account();
         account.setId(rs.getInt("id"));
-        account.setClient_id(rs.getInt("client_id"));
+        account.setClientId(rs.getInt("client_id"));
         account.setNumber(rs.getString("number"));
         account.setValue(rs.getDouble("value"));
         return account;
@@ -56,7 +56,7 @@ public class AccountDao {
     public void saveAccount(Account account) {
         try ( Connection connection = Database.getConnection();
               PreparedStatement statement = connection.prepareStatement(INSERT) ) {
-            statement.setInt(1, account.getClient_id());
+            statement.setInt(1, account.getClientId());
             statement.setString(2, account.getNumber());
             statement.setDouble(3, account.getValue());
             statement.execute();
@@ -78,7 +78,7 @@ public class AccountDao {
     public void updateAccount(Account account) {
         try ( Connection connection = Database.getConnection();
               PreparedStatement statement = connection.prepareStatement(UPDATE) ) {
-            statement.setInt(1, account.getClient_id());
+            statement.setInt(1, account.getClientId());
             statement.setString(2, account.getNumber());
             statement.setDouble(3, account.getValue());
             statement.setInt(4, account.getId());
